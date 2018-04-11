@@ -8,7 +8,7 @@ BASEDIR=$(cd $(dirname $0) && pwd)
 # emacs
 if [ ! -d ~/.emacs.d ]; then
     echo "Setup emacs config"
-    ln -s $WD/dot.emacs.d ~/.emacs.d
+    ln -s $BASEDIR/dot.emacs.d ~/.emacs.d
 fi
 
 # gitconfig

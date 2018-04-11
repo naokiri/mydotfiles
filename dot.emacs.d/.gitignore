@@ -2,4 +2,5 @@ session.*
 .emacs.desktop
 auto-save-list/
 elpa/
+*.lock
 
