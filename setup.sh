@@ -11,6 +11,12 @@ if [ ! -d ~/.emacs.d ]; then
     ln -s $BASEDIR/dot.emacs.d ~/.emacs.d
 fi
 
+# vim
+if [ ! -f ~/.vimrc ]; then
+    echo "Setup vim config"
+    ln -s $BASEDIR/dot.vimrc ~/.vimrc
+fi
+
 # gitconfig
 GIT_TARGET_FILE="$BASEDIR/gitconfig"
 GIT_DONE=0
