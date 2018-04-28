@@ -12,14 +12,18 @@ if [ ! -d ~/.emacs.d ]; then
 fi
 
 # gitconfig
-GIT_TARGET_FILE="$WD/gitconfig"
+GIT_TARGET_FILE="$BASEDIR/gitconfig"
 GIT_DONE=0
+set +e
 GIT_INCLUDE_LIST=$(git config --global --get-all include.path)
-for GIT_INCLUDE_FILE in ${GIT_INCLUDE_LIST}; do
-    if [ "$GIT_INCLUDE_FILE" = "$GIT_TARGET_FILE" ]; then
-        GIT_DONE=1
-    fi
-done
+set -e
+if [ "$GIT_INCLUDE_LIST" != "" ]; then
+    for GIT_INCLUDE_FILE in ${GIT_INCLUDE_LIST}; do
+        if [ "$GIT_INCLUDE_FILE" = "$GIT_TARGET_FILE" ]; then
+            GIT_DONE=1
+        fi
+    done
+fi
 if [ $GIT_DONE -eq 0 ]; then
     echo "Setup gitconfig"
     git config --global --add include.path "$BASEDIR/gitconfig"
