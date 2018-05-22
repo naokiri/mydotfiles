@@ -57,4 +57,18 @@ git_config_add_once "include.path" "$BASEDIR/gitconfig"
 # gitignore
 git_config_add_once "core.excludesfile" "$BASEDIR/gitignore"
 
+# git-prompt
+if [ ! -f ~/.git-prompt.sh ]; then
+    echo "Download git-promt.sh from git mirror repo"
+    curl -# https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -o ~/.git-prompt.sh
+    echo "Read ~/.git-prompt.sh and add as your need. Some env has set up by default, so this script won't do it"
+fi
+
+# git-completion
+if [ ! -f ~/.git-completion.bash ]; then
+    echo "Download git-completion.sh from git mirror repo"
+    curl -# https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash
+    echo "Read ~/.git-completion.sh and add as your need. Some env has set up by default, so this script won't do it"
+fi
+
 echo "Done!"
