@@ -18,11 +18,6 @@
 (desktop-save-mode 1)
 
 
-;;
-;; org
-;;
-(setq org-startup-indented t)
-(setq org-startup-truncated t)
 
 ;;
 ;; undo-tree
