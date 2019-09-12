@@ -34,18 +34,18 @@
 (straight-use-package 'use-package)
 (setq straight-use-package-by-default t)
 
-;; (setq syncing-packages
-;;       '(
-;;         init-loader
-;;         package-utils
-;;         ddskk
-;;         undo-tree
-;;         org-journal
-;;         which-key
-;;         ))
+(setq syncing-packages
+      '(
+        init-loader
+        package-utils
+        ddskk
+        undo-tree
+        org-journal
+        which-key
+        ))
 
-;(dolist (package-name syncing-packages)
-;  (straight-use-package package-name))
+(dolist (package-name syncing-packages)
+ (straight-use-package package-name))
 
 
 (use-package init-loader)
