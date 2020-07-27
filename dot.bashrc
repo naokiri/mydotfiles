@@ -6,9 +6,14 @@ export HISTFILESIZE=2000
 
 source ~/.git-prompt.sh
 export GIT_PS1_SHOWCOLORHINTS=true
-function _prompt_command () {
+function _multiwindow_history_sync () {
     history -a
+    history -c
     history -r
+}
+
+function _prompt_command () {
+    _multifindow_history_sync
     __git_ps1 "[\[\033[36m\]\d \t\[\033[00m\]] \[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]" "\\\$ "
 }
 PROMPT_COMMAND='_prompt_command'
