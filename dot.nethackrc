@@ -1,0 +1,15 @@
+OPTIONS=fruit:slime mold,boulder:0
+OPTIONS=statushilites:5
+OPTIONS=hilite_status:gold/always/yellow
+OPTIONS=hilite_status:hitpoints/100%/brightgreen
+OPTIONS=hilite_status:hitpoints/<100%/green
+OPTIONS=hilite_status:hitpoints/<60%/yellow
+OPTIONS=hilite_status:hitpoints/<40%/red
+
+OPTIONS=color,menucolors
+MENUCOLOR=" blessed "=cyan&bold
+MENUCOLOR=" holy "=cyan&bold
+MENUCOLOR=" cursed "=red&bold
+MENUCOLOR=" unholy "=red&bold
+
+OPTIONS=disclose:+i +a yv yg yc yo
