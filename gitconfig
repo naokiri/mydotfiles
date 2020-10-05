@@ -1,10 +1,12 @@
 #[include]
 #	path = /path/to/dotfile/gitconfig
 [alias]
-	st = status
-	graph = log --graph --decorate
-	lol = log --graph --decorate --pretty=oneline --abbrev-commit --all
-	gr = log --graph --decorate=short --date=short
-	today = log --oneline --since='24 hour ago'
-	show-conflict = !git ls-files -u | cut -f 2 | sort -u
-        selfeval = log --stat  --author=naoaki --since=\"3 month ago\"
+    st = status
+    graph = log --graph --decorate
+    lol = log --graph --decorate --pretty=oneline --abbrev-commit --all
+    gr = log --graph --decorate=short --date=short
+    today = log --oneline --since='24 hour ago'
+    show-conflict = !git ls-files -u | cut -f 2 | sort -u
+    selfeval = log --stat  --author=naoaki --since=\"3 month ago\"
+[merge]
+    conflictStyle = diff3
