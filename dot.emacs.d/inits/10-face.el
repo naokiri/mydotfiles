@@ -23,8 +23,7 @@
                   '("M+1P+IPAG" . "unicode-bmp"))
 
 (if (boundp 'window-system)
-    (progn
-                                        ;
+    (progn                                        
       (setq initial-frame-alist
             (append (list
                      '(foreground-color . "azure3") ; 文字が白

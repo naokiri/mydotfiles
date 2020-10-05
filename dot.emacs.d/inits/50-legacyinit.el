@@ -1,4 +1,7 @@
 (setq inhibit-startup-message t)
+(setq-default tab-width 4)
+(setq-default indent-tabs-mode nil)
+
 
 ;;;
 ;;; mode settings
@@ -16,7 +19,6 @@
 ;; desktop-save
 ;;
 ;(desktop-save-mode 1)
-
 
 
 ;;
