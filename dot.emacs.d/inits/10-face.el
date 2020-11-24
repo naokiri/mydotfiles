@@ -17,7 +17,7 @@
 (setq default-tab-width 4)
 (setq indent-tabs-mode nil)
 
-(set-default-font "Liberation Mono-13")
+(set-frame-font "Liberation Mono-13")
 (set-fontset-font (frame-parameter nil 'font)
                   'japanese-jisx0208
                   '("M+1P+IPAG" . "unicode-bmp"))
