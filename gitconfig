@@ -10,3 +10,5 @@
     selfeval = log --stat  --author=naoaki --since=\"3 month ago\"
 [merge]
     conflictStyle = diff3
+[diff]
+    algorithm = histogram
