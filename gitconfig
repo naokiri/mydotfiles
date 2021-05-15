@@ -2,6 +2,7 @@
 #	path = /path/to/dotfile/gitconfig
 [alias]
     st = status
+    co = checkout
     graph = log --graph --decorate
     lol = log --graph --decorate --pretty=oneline --abbrev-commit --all
     gr = log --graph --decorate=short --date=short
@@ -12,3 +13,8 @@
     conflictStyle = diff3
 [diff]
     algorithm = histogram
+[pull]
+    ff = only
+[init]
+# Be conservertive and let others face and resolve any bug for a while. 
+    defaultBranch = master
