@@ -12,9 +12,24 @@ function _multiwindow_history_sync () {
     history -r
 }
 
+SET_TERM_TITLE=0
+case "$TERM" in
+    xterm*|rxvt*)
+        SET_TERM_TITLE=1
+        ;;
+    *)
+        ;;
+esac
+
+PS_STRING_BEFORE="[\[\033[36m\]\D{%Y-%m-%d} \t\[\033[00m\]] \[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]"
+PS_STRING_AFTER="\\\$ "    
+if [ $SET_TERM_TITLE -eq 1 ]; then
+    PS_STRING_BEFORE="[\[\033[36m\]\D{%Y-%m-%d} \t\[\033[00m\]] \[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\[\e]0;\]\W\a\[\033[00m\]"
+fi
+
 function _prompt_command () {
-    _multifindow_history_sync
-    __git_ps1 "[\[\033[36m\]\d \t\[\033[00m\]] \[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]" "\\\$ "
+    _multiwindow_history_sync
+    __git_ps1 "$PS_STRING_BEFORE" "$PS_STRING_AFTER"
 }
 PROMPT_COMMAND='_prompt_command'
 
@@ -28,22 +43,22 @@ export LESS_TERMCAP_us=$'\E[1;32m'     # begin underline
 export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
 
 function _is_updated_today() {
-  local last_update=$(date +%s -r "$1")
-  local today_am4=$(date +%s --date="4AM")
-  [ ${last_update} -ge ${today_am4} ]
+    local last_update=$(date +%s -r "$1")
+    local today_am4=$(date +%s --date="4AM")
+    [ ${last_update} -ge ${today_am4} ]
 }
 
 function _daily_check_hook() {
-  local previous_exit_status=$?;
-  local config_dir="${XDG_CONFIG_HOME:-$HOME/.config}"
-  local touch_file="${config_dir}/.daily_script"
-  if [ -e ${touch_file} ]; then
-    if ! _is_updated_today ${touch_file}; then
-      echo "daily script waiting" >&2
+    local previous_exit_status=$?;
+    local config_dir="${XDG_CONFIG_HOME:-$HOME/.config}"
+    local touch_file="${config_dir}/.daily_script"
+    if [ -e ${touch_file} ]; then
+        if ! _is_updated_today ${touch_file}; then
+            echo "daily script waiting" >&2
+        fi
+    else
+        echo "foo"
     fi
-  else
-    echo "foo"
-  fi
-  return ${previous_exit_status};
+    return ${previous_exit_status};
 }
 
