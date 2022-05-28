@@ -1,8 +1,8 @@
 # -*- mode:shell-script(bash) -*-
 # Sample bashrc, but default env for bash differs too much that I don't setup automatically.
 shopt -s histappend
-export HISTSIZE=1000
-export HISTFILESIZE=2000
+export HISTSIZE=10000
+export HISTFILESIZE=20000
 
 source ~/.git-prompt.sh
 export GIT_PS1_SHOWCOLORHINTS=true
