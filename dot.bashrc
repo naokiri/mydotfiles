@@ -14,17 +14,24 @@ function _multiwindow_history_sync () {
 
 SET_TERM_TITLE=0
 case "$TERM" in
-    xterm*|rxvt*)
+    xterm*|rxvt*|dtterm*|aixterm*)
         SET_TERM_TITLE=1
         ;;
     *)
+        # have to consult on manuals to find other term title escape sequences.
         ;;
 esac
 
-PS_STRING_BEFORE="[\[\033[36m\]\D{%Y-%m-%d} \t\[\033[00m\]] \[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]"
+text_reset=$(tput sgr0)
+text_bold=$(tput bold)
+fcolor_red=$(tput setaf 1)
+fcolor_green=$(tput setaf 2)
+fcolor_blue=$(tput setaf 4)
+fcolor_cyan=$(tput setaf 6)
+
+PS_STRING_BEFORE="[\[$fcolor_cyan\]\D{%Y-%m-%d} \t\[\$text_reset\]] \[$text_bold$fcolor_green\]\u@\h\[$text_reset\]:\[$text_bold$fcolor_blue\]\W\[$text_reset\]"
 PS_STRING_AFTER="\\\$ "    
 if [ $SET_TERM_TITLE -eq 1 ]; then
-    #PS_STRING_BEFORE="[\[\033[36m\]\D{%Y-%m-%d} \t\[\033[00m\]] \[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\[\e]0;\]\W\a\[\033[00m\]"
     PS_STRING_AFTER="\\\$\[\e]0;\W\a\] "    
 fi
 
