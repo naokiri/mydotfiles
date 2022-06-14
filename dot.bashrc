@@ -24,7 +24,8 @@ esac
 PS_STRING_BEFORE="[\[\033[36m\]\D{%Y-%m-%d} \t\[\033[00m\]] \[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]"
 PS_STRING_AFTER="\\\$ "    
 if [ $SET_TERM_TITLE -eq 1 ]; then
-    PS_STRING_BEFORE="[\[\033[36m\]\D{%Y-%m-%d} \t\[\033[00m\]] \[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\[\e]0;\]\W\a\[\033[00m\]"
+    #PS_STRING_BEFORE="[\[\033[36m\]\D{%Y-%m-%d} \t\[\033[00m\]] \[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\[\e]0;\]\W\a\[\033[00m\]"
+    PS_STRING_AFTER="\\\$\[\e]0;\W\a\] "    
 fi
 
 function _prompt_command () {
