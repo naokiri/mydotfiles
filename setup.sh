@@ -22,11 +22,13 @@ BASHRC_SOURCING="source $BASEDIR/dot.bashrc"
 # Check if bashrc already sources dot.bashrc
 bashrc_add_once(){
     SOURCE_EXISTS_FLAG=0
+    set +e
     grep "$BASHRC_SOURCING" ~/.bashrc > /dev/null
     if [ $? -ne 0 ]; then
         echo "Setup bashrc"
         echo $BASHRC_SOURCING >> ~/.bashrc
     fi
+    set -e
 }
 
 if [ -f ~/.bashrc ]; then
