@@ -4,6 +4,8 @@ shopt -s histappend
 export HISTSIZE=10000
 export HISTFILESIZE=20000
 
+export PIPENV_VENV_IN_PROJECT=1
+
 source ~/.git-prompt.sh
 export GIT_PS1_SHOWCOLORHINTS=true
 function _multiwindow_history_sync () {
@@ -29,10 +31,10 @@ fcolor_green=$(tput setaf 2)
 fcolor_blue=$(tput setaf 4)
 fcolor_cyan=$(tput setaf 6)
 
-PS_STRING_BEFORE="[\[$fcolor_cyan\]\D{%Y-%m-%d} \t\[\$text_reset\]] \[$text_bold$fcolor_green\]\u@\h\[$text_reset\]:\[$text_bold$fcolor_blue\]\W\[$text_reset\]"
+PS_STRING_BEFORE="[\[$fcolor_cyan\]\D{%Y-%m-%d} \t\[\$text_reset\]] \[$text_bold$fcolor_green\]\u@\h\[$text_reset\]:\[$text_bold$fcolor_blue\]\w\[$text_reset\]"
 PS_STRING_AFTER="\\\$ "    
 if [ $SET_TERM_TITLE -eq 1 ]; then
-    PS_STRING_AFTER="\\\$\[\e]0;\W\a\] "    
+    PS_STRING_AFTER="\\\$\[\e]0;\w\a\] "    
 fi
 
 function _prompt_command () {

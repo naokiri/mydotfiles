@@ -51,7 +51,7 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 
 # Want to lock but not turn off screen
 exec swayidle -w \
-    timeout 300 'swaylock -f -c 000000' \
+    timeout 2400 'swaylock -f -c 000000' \
     before-sleep 'swaylock -f -c 000000'
 
 ### Input configuration
@@ -252,5 +252,9 @@ for_window [class="jetbrains-toolbox"] {
 #for_window [class="jetbrains-clion"] {
 #    floating enable
 #}
+
+for_window [class="obsidian"] {
+    move container to workspace 3
+}
 
 include /etc/sway/config.d/*

@@ -43,6 +43,7 @@
         undo-tree
         org-journal
         which-key
+        slime
         ))
 
 (dolist (package-name syncing-packages)
